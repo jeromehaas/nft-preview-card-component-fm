@@ -6,7 +6,7 @@ const browserSync = require('browser-sync').create();
 const webpackConfig = require('./webpack.config.js');
 const webpackStream = require('webpack-stream');
 const stylus = require('gulp-stylus');
-const autoprefixer = require('autoprefixer-stylus')
+const autoprefixer = require('autoprefixer-stylus');
 const cssnano = require('gulp-cssnano');
 const ttf2woff = require('gulp-ttf2woff');
 const ttf2woff2 = require('gulp-ttf2woff2');
@@ -36,16 +36,16 @@ const jsTask = (done) => {
 
 const fontTask = (done) => {
 	gulp.src('./src/assets/fonts/**/*.ttf')
-		.pipe(gulp.dest('./assets/fonts'))
+		.pipe(gulp.dest('./assets/fonts'));
 	gulp.src('./src/assets/fonts/**/*.ttf')
 		.pipe(ttf2eot())
-		.pipe(gulp.dest('./assets/fonts'))
+		.pipe(gulp.dest('./assets/fonts'));
 	gulp.src('./src/assets/fonts/**/*.ttf')
 		.pipe(ttf2woff())
-		.pipe(gulp.dest('./assets/fonts'))
+		.pipe(gulp.dest('./assets/fonts'));
 	gulp.src('./src/assets/fonts/**/*.ttf')
 		.pipe(ttf2woff2())
-		.pipe(gulp.dest('./assets/fonts'))
+		.pipe(gulp.dest('./assets/fonts'));
 	done();
 };
 
@@ -64,11 +64,11 @@ const watchTask = () => {
 		ui: { port: 3006 }
 	});
 	gulp.watch(['./index.html']).on('change', browserSync.reload);
-	gulp.watch(['./src/stylus/*']).on('change', browserSync.reload);
-	gulp.watch(['./src/js/*']).on('change', browserSync.reload);
+	gulp.watch(['./src/stylus/**/*.styl'], stylusTask).on('change', browserSync.reload);
+	gulp.watch(['./src/js/**/*.js'], jsTask).on('change', browserSync.reload);
 };
 
 
-exports.default = parallel(jsTask, stylusTask, watchTask);
+exports.default = series(jsTask, stylusTask, watchTask);
 exports.fonts = parallel(fontTask);
 exports.images = parallel(imageTask);
