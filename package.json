@@ -1,0 +1,8 @@
+{
+  "name": "nft-preview-card-component-fm",
+  "version": "1.0.0",
+  "description": "A challenge from FrontendMentor",
+  "main": "index.js",
+  "author": "Jérôme Haas",
+  "license": "MIT"
+}
