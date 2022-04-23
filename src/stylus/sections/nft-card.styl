@@ -22,12 +22,13 @@
 			height: 303px
 			border-radius: 15px
 			margin-bottom: 24px
-			background-image: url('/assets/images/artwork.webp')
 			background-size: cover
 			background-position: center
 			cursor: pointer
 			position: relative
 			overflow: hidden
+
+
 
 			&__banner 
 				position: absolute
@@ -49,8 +50,10 @@
 				opacity: 0;
 				transition: opacity 0.3s ease
 				pointer-events: none
-				
 
+			&__artwork
+				min-height: 100%
+				max-width: 100%
 
 		&__details, .details
 			display: grid
