@@ -29,7 +29,7 @@ class Card {
 			renderer: 'svg',
 			loop: true,
 			autoplay: true,
-			path: '/assets/lotties/lottie-eye.json'
+			path: 'assets/lotties/lottie-eye.json'
 		});
 		this.lotties.eye.element.setSpeed(0.5);
 	};
