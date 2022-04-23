@@ -1,7 +1,6 @@
 const gulp = require('gulp');
 const { series, parallel, dest } = require('gulp');
 const sourcemaps = require('gulp-sourcemaps');
-const concat = require('gulp-concat');
 const browserSync = require('browser-sync').create();
 const webpackConfig = require('./webpack.config.js');
 const webpackStream = require('webpack-stream');
@@ -21,7 +20,6 @@ const stylusTask = (done) => {
 			use: [autoprefixer('last 2 versions')]
 		}))
 		.pipe(cssnano())
-		.pipe(concat('styles.css'))
 		.pipe(sourcemaps.write('.'))
 		.pipe(dest('./css'));
 	done();
