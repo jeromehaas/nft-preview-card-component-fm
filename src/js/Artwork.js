@@ -93,7 +93,7 @@ class Artwork {
 	};
 
 	createCube = () => {
-		this.meshes.cube.geometry = new THREE.BoxBufferGeometry(1.5, 1.5, 1.5);
+		this.meshes.cube.geometry = new THREE.BoxBufferGeometry(1, 1, 1);
 		this.meshes.cube.material = new THREE.MeshNormalMaterial();
 		this.meshes.cube.material.shininess = 60;
 		this.meshes.cube.material.opacity = 0.75;
